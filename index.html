@@ -11,16 +11,18 @@
 <body>
   <header>
     <nav>
-      <h1>Ravikiran</h1>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certs">Certifications</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <h1>Ravikiran</h1>
+  <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certs">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  </nav>
+
     <section class="hero">
       <h2>Cloud & DevOps Engineer</h2>
       <p>Dynamic and results-driven professional with 9 years of experience in Azure cloud governance, DevOps practices, and automation.</p>
@@ -128,5 +130,25 @@
   <footer>
     <p>© 2025 Ravikiran. All rights reserved.</p>
   </footer>
+
+  <script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('nav ul');
+
+  menuToggle.addEventListener('click', () => {
+    // Toggle max-height & opacity (slide effect)
+    navLinks.classList.toggle('active');
+
+    if (navLinks.classList.contains('active')) {
+      // Force reflow so CSS transition triggers
+      void navLinks.offsetWidth; 
+      navLinks.classList.add('show'); // Add stagger class
+    } else {
+      navLinks.classList.remove('show'); // Remove stagger on close
+    }
+  });
+</script>
+
+
 </body>
 </html>
